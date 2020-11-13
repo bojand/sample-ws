@@ -1,0 +1,27 @@
+{
+  "name": "sample-ws",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bojand/sample-ws.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bojand/sample-ws/issues"
+  },
+  "homepage": "https://github.com/bojand/sample-ws#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "ws": "^7.4.0"
+  },
+  "devDependencies": {
+    "standard": "^16.0.2"
+  }
+}
