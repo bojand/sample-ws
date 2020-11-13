@@ -7,7 +7,7 @@ services:
     repo: bojand/sample-ws
     branch: main
   run_command: node client/index.js
-  # envs:
-  # - key: TARGET_COMPONENT
-  #   value: "intsvc0"
-  #   scope: RUN_TIME
+  envs:
+  - key: WS_LOCATION
+    value: "sample-ws-server-l5avd.ondigitalocean.app"
+    scope: RUN_TIME
