@@ -6,4 +6,4 @@ services:
   github:
     repo: bojand/sample-ws
     branch: main
-  source_dir: server
+  run_command: node server/index.js

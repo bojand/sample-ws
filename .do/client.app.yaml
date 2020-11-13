@@ -6,7 +6,7 @@ services:
   github:
     repo: bojand/sample-ws
     branch: main
-  source_dir: client
+  run_command: node client/index.js
   # envs:
   # - key: TARGET_COMPONENT
   #   value: "intsvc0"
