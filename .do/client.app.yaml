@@ -1,0 +1,13 @@
+name: sample-ws-client
+
+services:
+- name: client-ws
+  environment_slug: node-js
+  github:
+    repo: bojand/sample-ws
+    branch: main
+  source_dir: client
+  # envs:
+  # - key: TARGET_COMPONENT
+  #   value: "intsvc0"
+  #   scope: RUN_TIME
