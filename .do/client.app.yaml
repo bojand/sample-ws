@@ -9,5 +9,5 @@ services:
   run_command: node client/index.js
   envs:
   - key: WS_LOCATION
-    value: "sample-ws-server-l5avd.ondigitalocean.app"
+    value: "sample-ws-server-i8wtl.ondigitalocean.app"
     scope: RUN_TIME
