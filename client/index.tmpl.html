@@ -53,6 +53,8 @@
             const ws = new WebSocket(`wss://{{location}}`);
 
             ws.onmessage = function (event) {
+                console.log('got message')
+                
                 const data = JSON.parse(event.data);
 
                 rss.textContent = data.rss;
