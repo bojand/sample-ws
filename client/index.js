@@ -8,12 +8,11 @@ const { createServer } = require('http')
 
 const port = process.env.PORT || 8080
 const wsAddr = process.env.WS_LOCATION || '${location.host}'
-const wsPort = process.env.WS_PORT || 3000
 
 const app = express()
 
 let html = fs.readFileSync(path.join(__dirname, 'index.tmpl.html'), 'utf8')
-html = html.replace('{{location}}', `${wsAddr}:${wsPort}`)
+html = html.replace('{{location}}', `${wsAddr}`)
 
 const dir = path.join(__dirname, 'public')
 if (!fs.existsSync(dir)) {

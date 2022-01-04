@@ -1,8 +1,6 @@
 name: sample-ws-server
-
 services:
 - name: server-ws
-  environment_slug: node-js
   github:
     repo: bojand/sample-ws
     branch: main
