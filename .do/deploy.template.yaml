@@ -6,3 +6,4 @@ spec:
       branch: main
       repo_clone_url: https://github.com/bojand/sample-ws.git
     name: sample-ws
+    run_command: node server/index.js

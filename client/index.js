@@ -6,6 +6,7 @@ const path = require('path')
 
 const { createServer } = require('http')
 
+const port = process.env.PORT || 8080
 const app = express()
 
 let html = fs.readFileSync(path.join(__dirname, 'index.tmpl.html'), 'utf8')
@@ -22,6 +23,6 @@ app.use(express.static(path.join(__dirname, '/public')))
 
 const server = createServer(app)
 
-server.listen(8080, function () {
-  console.log('Listening on http://0.0.0.0:8080')
+server.listen(port, function () {
+  console.log(`Listening on http://0.0.0.0:${port}`)
 })
