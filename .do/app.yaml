@@ -7,7 +7,7 @@ services:
   run_command: node client/index.js
   envs:
   - key: WS_LOCATION
-    value: ${APP_DOMAIN}
+    value: ${server.PRIVATE_DOMAIN}
     scope: RUN_TIME
   - key: WS_PORT
     value: ${server.PRIVATE_PORT}
