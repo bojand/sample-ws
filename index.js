@@ -9,7 +9,12 @@ const { Server } = require('socket.io')
 
 const port = process.env.PORT || 8080
 
-const wsAddr = process.env.WS_HOST || '${location.host}'
+let wsAddr = '${location.host}'
+
+if (process.env.WS_HOST) {
+   let appURL = parse(process.env.WS_HOST)
+   wsAddr = appURL.hostname
+}
 
 const app = express()
 
