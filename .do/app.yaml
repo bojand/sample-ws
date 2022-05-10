@@ -1,9 +1,9 @@
-name: sample-ws-server
+name: sample-socketio
 services:
 - name: server
   github:
     repo: bojand/sample-ws
-    branch: main
+    branch: socketio
   run_command: node index.js
   envs:
   - key: WS_HOST
