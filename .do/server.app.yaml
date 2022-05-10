@@ -1,7 +1,0 @@
-name: sample-ws-server
-services:
-- name: server-ws
-  github:
-    repo: bojand/sample-ws
-    branch: main
-  run_command: node server/index.js

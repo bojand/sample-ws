@@ -1,0 +1,19 @@
+name: sample-ws-server
+services:
+- name: server
+  github:
+    repo: bojand/sample-ws
+    branch: main
+  run_command: node server/index.js
+- name: client
+  github:
+    repo: bojand/sample-ws
+    branch: main
+  run_command: node client/index.js
+  envs:
+  - key: WS_HOST
+    scope: RUN_TIME
+    value: ${server.PUBLIC_URL}
+  - key: NODE_ENV
+    scope: RUN_TIME
+    value: production

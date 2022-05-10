@@ -50,7 +50,7 @@
             const heapTotal = document.getElementById('heapTotal');
             const heapUsed = document.getElementById('heapUsed');
             const external = document.getElementById('external');
-            const ws = new WebSocket(`wss://{{location}}`);
+            const ws = new WebSocket(`{{ws_location}}/ws`);
 
             ws.onmessage = function (event) {
                 console.log('got message')
