@@ -5,7 +5,7 @@ const path = require('path')
 const express = require('express')
 const { createServer } = require('http')
 const { parse } = require('url')
-const { WebSocketServer } = require('ws')
+const { Server } = require('socket.io')
 
 const port = process.env.PORT || 8080
 
@@ -29,35 +29,24 @@ fs.writeFileSync(path.join(__dirname, 'public/index.html'), html)
 app.use(express.static(path.join(__dirname, '/public')))
 
 const server = createServer(app)
-const wss = new WebSocketServer({ noServer: true })
 
-wss.on('connection', function (ws, req) {
+const io = new Server(server);
+
+
+io.on('connection', (socket) => {
   console.log('got connection')
-  console.log(JSON.stringify(req.headers))
 
   const id = setInterval(function () {
     console.log('sending message to client')
-    ws.send(JSON.stringify(process.memoryUsage()))
+    io.emit('stats', JSON.stringify(process.memoryUsage()));
   }, 1000)
 
   console.log('started client interval')
 
-  ws.on('close', function () {
+  socket.conn.on('close', function () {
     console.log('stopping client interval')
     clearInterval(id)
   })
-})
-
-server.on('upgrade', function upgrade (request, socket, head) {
-  const { pathname } = parse(request.url)
-
-  if (pathname === '/ws') {
-    wss.handleUpgrade(request, socket, head, function done (ws) {
-      wss.emit('connection', ws, request)
-    })
-  } else {
-    socket.destroy()
-  }
 })
 
 server.listen(port, function () {

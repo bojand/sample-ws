@@ -44,25 +44,26 @@
             </tr>
         </tbody>
     </table>
+    <script src="/socket.io/socket.io.js"></script>
     <script>
-        (function () {
-            const rss = document.getElementById('rss');
-            const heapTotal = document.getElementById('heapTotal');
-            const heapUsed = document.getElementById('heapUsed');
-            const external = document.getElementById('external');
-            const ws = new WebSocket(`{{ws_location}}/ws`);
+        const rss = document.getElementById('rss');
+        const heapTotal = document.getElementById('heapTotal');
+        const heapUsed = document.getElementById('heapUsed');
+        const external = document.getElementById('external');
 
-            ws.onmessage = function (event) {
-                console.log('got message')
-                
-                const data = JSON.parse(event.data);
+        const socket = io();
 
-                rss.textContent = data.rss;
-                heapTotal.textContent = data.heapTotal;
-                heapUsed.textContent = data.heapUsed;
-                external.textContent = data.external;
-            };
-        })();
+        socket.on('stats', function (msg) {
+            console.log('got message')
+            console.log(msg)
+
+            const data = JSON.parse(msg);
+
+            rss.textContent = data.rss;
+            heapTotal.textContent = data.heapTotal;
+            heapUsed.textContent = data.heapUsed;
+            external.textContent = data.external;
+        });
     </script>
 </body>
 
