@@ -4,12 +4,7 @@ services:
   github:
     repo: bojand/sample-ws
     branch: main
-  run_command: node server/index.js
-- name: client
-  github:
-    repo: bojand/sample-ws
-    branch: main
-  run_command: node client/index.js
+  run_command: node index.js
   envs:
   - key: WS_HOST
     scope: RUN_TIME
